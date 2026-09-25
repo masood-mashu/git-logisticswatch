@@ -1,0 +1,40 @@
+spec_version: "0.1.0"
+name: git-logisticswatch
+version: 1.0.0
+description: "Autonomous Bill of Materials (BOM) Lead-Time Risk, Supplier Variance & Reorder Point Auditor Agent"
+author: "masood-mashu"
+license: "Apache-2.0"
+
+model:
+  preferred: "openai:gpt-4o"
+  fallback:
+    - "anthropic:claude-3-5-sonnet"
+    - "openai:gpt-4o-mini"
+  constraints:
+    temperature: 0.1
+    max_tokens: 4096
+
+skills:
+  - reorder-point-optimization
+  - bom-shortage-containment
+
+tools:
+  - reorder-point-calculator
+  - bom-completeness-verifier
+  - lead-time-drift-auditor
+  - hts-code-validator
+
+runtime:
+  max_turns: 50
+  timeout: 120
+
+tags:
+  - manufacturing
+  - supply-chain
+  - logistics
+  - bom
+  - passport-challenge
+
+metadata:
+  passport_id: "aps-logisticswatch-01"
+  passport_category: "Manufacturing & supply chain"

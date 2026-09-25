@@ -1,0 +1,18 @@
+name: bom-completeness-verifier
+description: "Verifies that all required component parts in bill of materials are allocated in inventory"
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    bom_items:
+      type: string
+      description: "Comma-separated list of required component part numbers"
+  required:
+    - bom_items
+implementation:
+  type: script
+  path: bom_completeness_verifier.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

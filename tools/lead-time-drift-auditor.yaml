@@ -1,0 +1,18 @@
+name: lead-time-drift-auditor
+description: "Detects suppliers whose actual lead time exceeds contractual quotes by more than 20%"
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    actual_lead_days:
+      type: string
+      description: "Observed lead time in days integer"
+  required:
+    - actual_lead_days
+implementation:
+  type: script
+  path: lead_time_drift_auditor.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true
